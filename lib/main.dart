@@ -135,6 +135,7 @@ class _MapWithRadarMarkerState extends State<MapWithRadarMarker>
 
                       setState(() {});
                     });
+                    mapController.animateCamera(CameraUpdate.newLatLng(latlng));
                   });
                 },
                 onMapCreated: (GoogleMapController controller) async {
@@ -161,6 +162,26 @@ class _MapWithRadarMarkerState extends State<MapWithRadarMarker>
                   zoom: 14.0,
                 ),
               ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IgnorePointer(
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      color: Colors.red.withOpacity(0.3),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 300,
+                    width: 300,
+                    color: Colors.red.withOpacity(0.3),
+                  ),
+                ],
+              )
             ],
           )
         : const SizedBox();
